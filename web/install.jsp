@@ -56,6 +56,7 @@ private List<String> resetDatabase(boolean force) throws Exception {
             + " DESCRIPCIO VARCHAR (100),"
             + " ESTAT VARCHAR(25),"
             + " ESTUDIANTS VARCHAR (50),"
+            + " ESTUDIS VARCHAR (25),"
             + " RECURSOS VARCHAR (100),"
             + " DATA_DEFENSA VARCHAR (10),"
             + " QUALIFICACIO VARCHAR(10),"
