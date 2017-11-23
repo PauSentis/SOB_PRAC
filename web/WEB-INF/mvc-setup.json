@@ -7,6 +7,10 @@
     {
       "URI": "/write",
       "class": "cat.urv.deim.sob.command.WriteCommand" 
+    },
+    {
+        "URI": "/login",
+        "class": "cat.urv.deim.sob.command.LoginCommand"
     }
   ]
 }
