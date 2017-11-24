@@ -25,11 +25,18 @@ public class LoginCommand implements Command{
         
        profe.setUsuari(request.getParameter("usuari"));
        profe.setContrasenya(request.getParameter("pass"));
-        
-        
-        
-        
-        
+       
+       user = UserDAO.login(user);
+       
+       if(user.isValid()){
+           HttpSession session = request.getSession(true);
+           session.setAtrivute("currentSessionUser", user);
+           response.sendRedirect("userLogged.jsp");
+       }
+       
+       else
+           response.sendRedirect("invalidLogin.jsp");
+
     }
     
     
