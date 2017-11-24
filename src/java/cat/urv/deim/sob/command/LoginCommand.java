@@ -6,10 +6,12 @@
 package cat.urv.deim.sob.command;
 
 import cat.urv.deim.sob.Professor;
+import cat.urv.deim.sob.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,11 +28,11 @@ public class LoginCommand implements Command{
        profe.setUsuari(request.getParameter("usuari"));
        profe.setContrasenya(request.getParameter("pass"));
        
-       user = UserDAO.login(user);
+       profe = UserDAO.login(profe);
        
-       if(user.isValid()){
+       if(profe.isValid()){
            HttpSession session = request.getSession(true);
-           session.setAtrivute("currentSessionUser", user);
+           session.setAttribute("currentSessionUser", profe);
            response.sendRedirect("userLogged.jsp");
        }
        
