@@ -5,6 +5,7 @@
  */
 package cat.urv.deim.sob.command;
 
+import cat.urv.deim.sob.Professor;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Toni Ciordia
+ * @author Pau
  */
 public class LoginCommand implements Command{
 
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void execute(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        Professor profe = new Professor();
+        
+       profe.setUsuari(request.getParameter("usuari"));
+       profe.setContrasenya(request.getParameter("pass"));
+        
+        
         
         
         
