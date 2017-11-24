@@ -16,6 +16,7 @@ public class Professor {
     private String contrasenya;
     private String usuari;
     private int id;
+    private boolean valid;
     
     public Professor(){
         
@@ -26,6 +27,7 @@ public class Professor {
         this.contrasenya = contrasenya;
         this.usuari = usuari;
         this.id = id;
+        this.valid=false;
     }
     
     public String getNom(){
@@ -58,6 +60,14 @@ public class Professor {
     
     public void setNom(int id){
         this.id=id;
+    }
+    
+    public boolean isValid(){
+        return valid;
+    }
+    
+    public void setValid(boolean valid){
+        this.valid = valid;
     }
     
 }
