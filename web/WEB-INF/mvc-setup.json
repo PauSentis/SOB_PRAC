@@ -1,12 +1,20 @@
 {
   "commands": [
     {
-      "URI": "/write",
-      "class": "cat.urv.deim.sob.command.WriteCommand" 
-    },
-    {
         "URI": "/login",
         "class": "cat.urv.deim.sob.command.LoginCommand"
+    },
+    {
+        "URI": "/TFGactius",
+        "class": "cat.urv.deim.sob.command.TFGActiusCommand"
+    },
+    {
+        "URI": "/TFGanteriors",
+        "class": "cat.urv.deim.sob.command.TFGAnteriorsCommand"
+    },
+    {
+        "URI": "/TFGtots",
+        "class": "cat.urv.deim.sob.command.TFGTotsCommand"
     }
   ]
 }
