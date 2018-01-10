@@ -18,9 +18,9 @@
       <body>
 
          <center>
-            <% Professor currentUser = (Professor (session.getAttribute("currentSessionUser")));%>
+             <% Professor currentUser = (Professor) session.getAttribute("currentSessionUser");%>
 			
-            Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName() %>
+            Welcome <%= currentUser.getNom() %>
          </center>
 
       </body>
