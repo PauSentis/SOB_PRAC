@@ -5,7 +5,9 @@
  */
 package cat.urv.deim.sob.command;
 
+import cat.urv.deim.sob.Projecte;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,8 @@ public class TFGTotsCommand implements Command{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        
         
     }
     
