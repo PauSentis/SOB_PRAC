@@ -1,11 +1,11 @@
 <%-- 
-    Document   : listAll
+    Document   : tots
     Created on : 23-ene-2018, 10:35:04
     Author     : Toni Ciordia
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="cat.urv.deim.sob.Projecte"%>
-<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 <%
-                    List<Projecte> list = (List<Projecte>) request.getAttribute(""); //ficar al getAttribute el q volem demanar
+                    ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute(""); //ficar al getAttribute el q volem demanar
                     out.print("<tr>");
                     for(Projecte projecte : list){
                         out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+/* falta el getProfessor*/"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");

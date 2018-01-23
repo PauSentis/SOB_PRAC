@@ -16,6 +16,7 @@ public class Projecte {
     private String titol;
     private String descripcio;
     private String estat;
+    private String estudiants;
     private String estudis;
     private String recursos;
     private String data_defensa;
@@ -23,11 +24,12 @@ public class Projecte {
     private String data_creacio;
     private String data_modificacio;
     
-    public Projecte (int id, String titol, String descripcio, String estat, String estudis, String recursos, String data_defensa, String qualificacio, String data_creacio, String data_modificacio){
+    public Projecte (int id, String titol, String descripcio, String estat,String estudiants, String estudis, String recursos, String data_defensa, String qualificacio, String data_creacio, String data_modificacio){
         this.id=id;
         this.titol=titol;
         this.descripcio=descripcio;
         this.estat=estat;
+        this.estudiants=estudiants;
         this.estudis=estudis;
         this.recursos=recursos;
         this.data_defensa=data_defensa;
@@ -50,6 +52,10 @@ public class Projecte {
 
     public String getEstat() {
         return estat;
+    }
+    
+    public String getEstudiants() {
+        return estudiants;
     }
 
     public String getEstudis() {
@@ -90,6 +96,10 @@ public class Projecte {
 
     public void setEstat(String estat) {
         this.estat = estat;
+    }
+    
+    public void setEstudiants(String estudiants) {
+        this.estudiants = estudiants;
     }
 
     public void setEstudis(String estudis) {

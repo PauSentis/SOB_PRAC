@@ -13,7 +13,7 @@ private List<String> resetDatabase(boolean force) throws Exception {
          * 
          * If there is any problem, it will exit at the very first error.
          */
-        String dbname = "demodb";
+        String dbname = "SOBDB";
         Class.forName("org.apache.derby.jdbc.ClientDriver");
         /* this will generate database if not exist */
         Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/" + dbname + ";create=true", "user", "pwd");
@@ -64,9 +64,8 @@ private List<String> resetDatabase(boolean force) throws Exception {
             + " DATA_MODIFICACIO VARCHAR (10))",
             
             "CREATE TABLE " + dbname + ".PROFPROJ ("
-            + " IDPROFPROJ INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-            + " PROFESSOR VARCHAR (25) NOT NULL,"
-            + " PROJECTE VARCHAR (25) NOT NULL)"};
+            + " IDPROFESSOR INT NOT NULL,"
+            + " IDPROJECTE INT NOT NULL)"};
             
         for (String table : tables) {
             try {
