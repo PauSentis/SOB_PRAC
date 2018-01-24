@@ -1,3 +1,4 @@
+<%@page import="cat.urv.deim.sob.Professor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cat.urv.deim.sob.Projecte"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -64,7 +65,7 @@
         <thead>
             <tr>
                 <th>Títol</th>
-
+                <th>Professor</th>
                 <th>Estat</th>
                 <th>Grau</th>
             </tr>
@@ -74,7 +75,7 @@
                 ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("tots");
                 out.print("<tr>");
                 for(Projecte projecte : list){
-                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
+                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+projecte.getProfessors()+"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
             }
             %>
         </tbody>
