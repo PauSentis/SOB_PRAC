@@ -5,7 +5,7 @@
 <html>
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Llistat de tots els TFGs</title>
+        <title>Llistat dels TFGs actius</title>
         
         <style>
             table, th, td {

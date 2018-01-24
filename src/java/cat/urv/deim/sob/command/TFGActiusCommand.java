@@ -20,9 +20,9 @@ public class TFGActiusCommand implements Command{
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         ProjecteDAO dao = new ProjecteDAO();
-        ArrayList<Projecte> tots = dao.findActius();
+        ArrayList<Projecte> actius = dao.findActius();
         ServletContext context = request.getSession().getServletContext();
-        request.setAttribute("actius", tots);
+        request.setAttribute("actius", actius);
         context.getRequestDispatcher("/actius.jsp").forward(request, response);
     }
     

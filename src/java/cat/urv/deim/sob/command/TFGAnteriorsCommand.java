@@ -20,9 +20,9 @@ public class TFGAnteriorsCommand implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProjecteDAO dao = new ProjecteDAO();
-        ArrayList<Projecte> tots = dao.findActius();
+        ArrayList<Projecte> anteriors = dao.findAnteriors();
         ServletContext context = request.getSession().getServletContext();
-        request.setAttribute("anteriors", tots);
+        request.setAttribute("anteriors", anteriors);
         context.getRequestDispatcher("/anteriors.jsp").forward(request, response);
     }
     
