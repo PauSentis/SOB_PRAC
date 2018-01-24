@@ -129,6 +129,18 @@ public class Projecte {
         return listProfessor;
     }
     
+    public String getProfessors(){
+        String profes = "";
+        for(int i=0; i<listProfessor.size(); i++){
+            if(i==0){
+                profes += listProfessor.get(i).getNom();
+            }else{
+                profes += ", "+listProfessor.get(i).getNom();
+            }
+        }
+        return profes;
+    }
+    
     public void setListProfessor(ArrayList<Professor> listProfessor){
         this.listProfessor = listProfessor;
     }

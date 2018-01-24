@@ -64,7 +64,7 @@
         <thead>
             <tr>
                 <th>Títol</th>
-
+                <th>Professors</th>
                 <th>Estat</th>
                 <th>Grau</th>
             </tr>
@@ -74,7 +74,7 @@
                 ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("actius");
                 out.print("<tr>");
                 for(Projecte projecte : list){
-                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
+                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+projecte.getProfessors()+"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
             }
             %>
         </tbody>
