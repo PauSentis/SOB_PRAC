@@ -9,7 +9,7 @@
   <body>
  <% 
     ServletContext context = request.getSession().getServletContext();
-    RequestDispatcher r = context.getRequestDispatcher("/TFGtots.do");
+    RequestDispatcher r = context.getRequestDispatcher("/TFGactius.do");
     r.forward(request, response); %>
   </body>
 </html>

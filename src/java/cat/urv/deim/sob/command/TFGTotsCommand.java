@@ -14,21 +14,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Toni Ciordia
- */
 public class TFGTotsCommand implements Command{
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-       /** System.out.println("HE aribat");
-        ServletContext context = request.getSession().getServletContext();
-        String tots = "tots";
-        request.setAttribute("tots", tots);
-        context.getRequestDispatcher("/tots.jsp").forward(request, response);
-        */
         ProjecteDAO dao = new ProjecteDAO();
         ArrayList<Projecte> tots = dao.findAll();
         ServletContext context = request.getSession().getServletContext();

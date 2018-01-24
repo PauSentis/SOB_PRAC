@@ -6,10 +6,6 @@ package cat.urv.deim.sob;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author Toni Ciordia
- */
 public class Projecte {
     
     private int id;

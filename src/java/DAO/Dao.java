@@ -9,10 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 
-/**
- *
- * @author Toni Ciordia
- */
 public interface Dao {
     
     public ArrayList<?> findAll() throws ServletException, IOException;

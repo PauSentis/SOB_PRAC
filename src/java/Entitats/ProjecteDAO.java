@@ -31,9 +31,8 @@ public class ProjecteDAO implements DAO.Dao{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/SOBDB", "root", "root");
             Statement stmt1 = connect.createStatement();
-            Statement stmt2 = connect.createStatement();
             
-            String query = "SELECT * FROM SOBDB.PROJECTE ORDER BY IDPROJ";
+            String query = "SELECT * FROM SOBDB.PROJECTE ORDER BY TITOL";
             ResultSet rs = stmt1.executeQuery(query);
             while(rs.next()){
                 projectes.add(new Projecte(rs.getInt("IDPROJ"), rs.getString("TITOL"), rs.getString("DESCRIPCIO"), rs.getString("ESTAT"), rs.getString("ESTUDIANTS"), rs.getString("ESTUDIS"), rs.getString("RECURSOS"), rs.getString("DATA_DEFENSA"), rs.getString("QUALIFICACIO"), rs.getString("DATA_CREACIO"), rs.getString("DATA_MODIFICACIO")));
@@ -45,6 +44,27 @@ public class ProjecteDAO implements DAO.Dao{
         return projectes;
     }
     
+    public ArrayList<Projecte> findActius() throws ServletException, IOException {
+        ArrayList<Projecte> tots = findAll();
+        ArrayList<Projecte> actius = new ArrayList<>();
+        
+        for(Projecte p: tots){
+            if(!"Defensat".equals(p.getEstat())){
+                System.out.println(p.getEstat());
+                actius.add(p);
+            }
+        }
+        return actius;
+    }
     
-    
+    public ArrayList<Projecte> findAnteriors() throws ServletException, IOException {
+        ArrayList<Projecte> anteriors = findAll();
+        
+        for(Projecte p: anteriors){
+            if(!"Defensat".equals(p.getEstat())){
+                anteriors.remove(p);
+            }
+        }
+        return anteriors;
+    }    
 }
