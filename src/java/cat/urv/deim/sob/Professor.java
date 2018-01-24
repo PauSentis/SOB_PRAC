@@ -14,7 +14,6 @@ public class Professor {
     private String contrasenya;
     private String usuari;
     private int id;
-    private boolean valid;
     private ArrayList<Projecte> listProjectes;
     
     public Professor(){
@@ -26,7 +25,6 @@ public class Professor {
         this.contrasenya = contrasenya;
         this.usuari = usuari;
         this.id = id;
-        this.valid=false;
     }
     
     public String getNom(){
@@ -61,12 +59,12 @@ public class Professor {
         this.id=id;
     }
     
-    public boolean isValid(){
-        return valid;
+    public ArrayList<Projecte> getListProjectes(){
+        return listProjectes;
     }
     
-    public void setValid(boolean valid){
-        this.valid = valid;
+    public void setListProjectes(ArrayList<Projecte> listProjecte){
+        this.listProjectes = listProjecte;
     }
     
 }
