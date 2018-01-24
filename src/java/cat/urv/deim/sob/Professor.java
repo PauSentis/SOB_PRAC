@@ -20,7 +20,7 @@ public class Professor {
         
     }
     
-    public Professor(String nom, String contrasenya, String usuari, int id){
+    public Professor(int id, String nom, String contrasenya, String usuari){
         this.nom = nom;
         this.contrasenya = contrasenya;
         this.usuari = usuari;
