@@ -24,7 +24,7 @@ public class LoginCommand implements Command{
             throws ServletException, IOException {
         
        //Professor profe = new Professor();
-        System.out.println("aaaaaaaaaaaaa");
+       System.out.println("aaaaaaaaaaaaa");
        //profe.setUsuari(request.getParameter("usuari"));
        //profe.setContrasenya(request.getParameter("pass"));
        ServletContext context = request.getSession().getServletContext();

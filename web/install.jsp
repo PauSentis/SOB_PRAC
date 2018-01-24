@@ -52,7 +52,7 @@ private List<String> resetDatabase(boolean force) throws Exception {
 
             "CREATE TABLE " + dbname + ".PROJECTE ("
             + " IDPROJ INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
-            + " TITOL VARCHAR (25),"
+            + " TITOL VARCHAR (50),"
             + " DESCRIPCIO VARCHAR (100),"
             + " ESTAT VARCHAR(25),"
             + " ESTUDIANTS VARCHAR (50),"
@@ -82,8 +82,8 @@ private List<String> resetDatabase(boolean force) throws Exception {
         String data[] = new String[]{
 
             "INSERT INTO " + dbname + ".PROFESSOR (USUARI, PASS, NOM) VALUES ('sob','sob','marc')",
-            "INSERT INTO " + dbname + ".PROJECTE (TITOL, DESCRIPCIO, ESTAT, ESTUDIANTS, RECURSOS, DATA_DEFENSA, QUALIFICACIO, DATA_CREACIO, DATA_MODIFICACIO) VALUES ('tfg1','Per un 10','ASSIGNAT','Pep','Molts recursos','2-5-2017','10','3-5-2017','4-5-2017')",
-            "INSERT INTO " + dbname + ".PROFPROJ (PROFESSOR, PROJECTE) VALUES ('sob','tfg1')"};
+            "INSERT INTO " + dbname + ".PROJECTE (TITOL, DESCRIPCIO, ESTAT, ESTUDIANTS, ESTUDIS, RECURSOS, DATA_DEFENSA, QUALIFICACIO, DATA_CREACIO, DATA_MODIFICACIO) VALUES ('Ciordia y sus andares felinos','Per un 10','ASSIGNAT','Pep', 'GEI', 'Molts recursos','2-5-2017','10','3-5-2017','4-5-2017')",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,1)"};
 
         for (String datum : data) {
             if (stmt.executeUpdate(datum) <= 0) {
