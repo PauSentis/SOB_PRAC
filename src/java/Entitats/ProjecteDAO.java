@@ -44,7 +44,7 @@ public class ProjecteDAO implements DAO.Dao{
             query = "SELECT * FROM SOBDB.PROFESSOR ORDER BY IDPROF";
             rs = stmt1.executeQuery(query);
             while(rs.next()){
-                professors.add(new Professor(rs.getString("IDPROJ"), rs.getString("TITOL"), rs.getString("DESCRIPCIO"), rs.getString("ESTAT"), rs.getString("ESTUDIANTS"), rs.getString("ESTUDIS"), rs.getString("RECURSOS"), rs.getString("DATA_DEFENSA"), rs.getString("QUALIFICACIO"), rs.getString("DATA_CREACIO"), rs.getString("DATA_MODIFICACIO")));
+                professors.add(new Professor(rs.getInt("IDPROF"), rs.getString("USUARI"), rs.getString("PASS"), rs.getString("NOM")));
             }
             
             query = "SELECT * FROM SOBDB.PROFPROJ ORDER BY IDPROJECTE";
