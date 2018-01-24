@@ -112,7 +112,16 @@ private List<String> resetDatabase(boolean force) throws Exception {
             "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (6,11)",
             "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,8)",
             "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (2,15)",
-            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (6,5)"};
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (7,13)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,1)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (5,12)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (3,3)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (7,6)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (5,5)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (4,9)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (6,14)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (2,13)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (3,9)"};
             
 
         for (String datum : data) {
