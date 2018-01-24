@@ -55,7 +55,7 @@
   <li><a href="TFGactius.do">Projectes Actius</a></li>
   <li><a class="active" href="TFGanteriors.do">Projectes Anteriors</a></li>
   <li><a href="TFGtots.do">Tots els projectes</a></li>
-  <li style="float:right"><a href="login.do">Iniciar Sessió</a></li>
+  <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
 
 <div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
