@@ -50,7 +50,6 @@ public class ProjecteDAO implements DAO.Dao{
         
         for(Projecte p: tots){
             if(!"Defensat".equals(p.getEstat())){
-                System.out.println(p.getEstat());
                 actius.add(p);
             }
         }
@@ -58,11 +57,12 @@ public class ProjecteDAO implements DAO.Dao{
     }
     
     public ArrayList<Projecte> findAnteriors() throws ServletException, IOException {
-        ArrayList<Projecte> anteriors = findAll();
+        ArrayList<Projecte> tots = findAll();
+        ArrayList<Projecte> anteriors = new ArrayList<>();
         
-        for(Projecte p: anteriors){
-            if(!"Defensat".equals(p.getEstat())){
-                anteriors.remove(p);
+        for(Projecte p: tots){
+            if("Defensat".equals(p.getEstat())){
+                anteriors.add(p);
             }
         }
         return anteriors;

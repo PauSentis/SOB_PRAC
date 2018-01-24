@@ -1,5 +1,7 @@
 package cat.urv.deim.sob;
 
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -19,6 +21,7 @@ public class Projecte {
     private String qualificacio;
     private String data_creacio;
     private String data_modificacio;
+    private ArrayList<Professor> listProfessor;
     
     public Projecte (int id, String titol, String descripcio, String estat,String estudiants, String estudis, String recursos, String data_defensa, String qualificacio, String data_creacio, String data_modificacio){
         this.id=id;
