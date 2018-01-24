@@ -53,9 +53,9 @@ public class ProjecteDAO implements DAO.Dao{
                 int idProfe = rs.getInt("IDPROFESSOR");
                 int idProj = rs.getInt("IDPROJECTE");
                 for(Projecte p: projectes){
-                    if(p.getId()==idProfe){
+                    if(p.getId()==idProj){
                         for(Professor profe: professors){
-                            if(profe.getId()==idProj){
+                            if(profe.getId()==idProfe){
                                 p.addProfessor(profe);
                             }
                         }
