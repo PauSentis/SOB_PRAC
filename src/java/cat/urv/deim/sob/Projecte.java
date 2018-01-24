@@ -21,7 +21,7 @@ public class Projecte {
     private String qualificacio;
     private String data_creacio;
     private String data_modificacio;
-    private ArrayList<Professor> listProfessor;
+    private ArrayList<Professor> listProfessor = new ArrayList<>();
     
     public Projecte (int id, String titol, String descripcio, String estat,String estudiants, String estudis, String recursos, String data_defensa, String qualificacio, String data_creacio, String data_modificacio){
         this.id=id;
@@ -125,7 +125,16 @@ public class Projecte {
         this.data_modificacio = data_modificacio;
     }
     
+    public ArrayList<Professor> getListProfessor(){
+        return listProfessor;
+    }
     
+    public void setListProfessor(ArrayList<Professor> listProfessor){
+        this.listProfessor = listProfessor;
+    }
     
+    public void addProfessor(Professor professor){
+        listProfessor.add(professor);
+    }
     
 }
