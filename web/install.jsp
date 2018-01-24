@@ -103,7 +103,17 @@ private List<String> resetDatabase(boolean force) throws Exception {
             "INSERT INTO " + dbname + ".PROJECTE (TITOL, ESTAT, ESTUDIS, DATA_CREACIO) VALUES ('Los antepasados del Señor Sentís','Proposat','Historia','2-5-2017')",
             "INSERT INTO " + dbname + ".PROJECTE (TITOL, DESCRIPCIO, ESTAT, ESTUDIANTS, ESTUDIS, DATA_MODIFICACIO) VALUES ('Hatxepsut. Evidències arqueològiques','Per un 10','Assignat','Maria', 'Arqueologia','4-5-2017')",
             "INSERT INTO " + dbname + ".PROJECTE (TITOL, DESCRIPCIO, ESTAT, ESTUDIANTS, ESTUDIS, DATA_MODIFICACIO) VALUES ('Turismo enológico: Francia y España','Per un 10','Assignat','Marc', 'Enologia','4-5-2017')",
-            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,1)"};
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,10)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (5,2)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (7,7)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (2,9)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (3,2)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (4,4)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (6,11)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (1,8)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (2,15)",
+            "INSERT INTO " + dbname + ".PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES (6,5)"};
+            
 
         for (String datum : data) {
             if (stmt.executeUpdate(datum) <= 0) {
