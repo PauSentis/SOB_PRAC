@@ -1,4 +1,3 @@
-<%@page import="cat.urv.deim.sob.Professor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cat.urv.deim.sob.Projecte"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -6,7 +5,7 @@
 <html>
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Llistat de tots els TFGs</title>
+        <title>Llistat dels TFGs actius</title>
         
         <style>
             table, th, td {
@@ -55,7 +54,7 @@
 <ul>
   <li><a href="TFGactius.do">Projectes Actius</a></li>
   <li><a href="TFGanteriors.do">Projectes Anteriors</a></li>
-  <li><a class="active" href="TFGtots.do">Tots els projectes</a></li>
+  <li><a href="TFGtots.do">Tots els projectes</a></li>
   <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
 
@@ -65,14 +64,14 @@
         <thead>
             <tr>
                 <th>Títol</th>
-                <th>Professor</th>
+                <th>Professors</th>
                 <th>Estat</th>
                 <th>Grau</th>
             </tr>
         </thead>
         <tbody>
             <%
-                ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("tots");
+                ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("proj");
                 out.print("<tr>");
                 for(Projecte projecte : list){
                     String url;

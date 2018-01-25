@@ -67,4 +67,8 @@ public class Professor {
         this.listProjectes = listProjecte;
     }
     
+    public void addProjecte(Projecte p){
+        listProjectes.add(p);
+    }
+    
 }

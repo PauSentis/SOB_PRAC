@@ -15,6 +15,10 @@
     {
         "URI": "/TFGtots",
         "class": "cat.urv.deim.sob.command.TFGTotsCommand"
+    },
+    {
+      "URI": "/TfgsProfe",
+      "class": "cat.urv.deim.sob.command.TfgsPerProfeCommand" 
     }
   ]
 }

@@ -74,8 +74,19 @@
                 ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("actius");
                 out.print("<tr>");
                 for(Projecte projecte : list){
-                        out.print("<tr><td>"+projecte.getTitol()+"</td><td>"+projecte.getProfessors()+"</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
-            }
+                    String url;
+                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>");
+                    for (int i =0; i<projecte.getListProfessor().size(); i++){
+                        url = "TfgsProfe.do?id="+projecte.getListProfessor().get(i).getId();
+                        if(i!=projecte.getListProfessor().size()-1){
+                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+", </a>");
+                        }else{
+                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+" </a>");
+                        }
+                       
+                    }
+                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
+                }
             %>
         </tbody>
     </table>
