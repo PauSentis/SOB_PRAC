@@ -14,7 +14,7 @@
                     text-align: center;
                 }
 
-            body {margin:0;}
+            body {margin:0;background-color:#F2FBEF;}
 
             ul {
                 list-style-type: none;
@@ -58,7 +58,7 @@
   <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
 
-<div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
+<div style="padding:20px;margin-top:60px;margin-left:60px;background-color:#F2FBEF;height:1500px;">
 
     <table style="width:50%">
         <thead>

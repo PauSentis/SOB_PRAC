@@ -15,8 +15,7 @@
         
         <style>
            
-
-            body {margin:0;}
+            body {margin:0;background-color: #F2FBEF}
 
             ul {
                 list-style-type: none;
@@ -60,19 +59,18 @@
   <li class="active" style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
     
-<div style="padding:20px;margin-top:30px;background-color:#F2FBEF;height:1500px;margin: 300px 300px;">
-
+<div style="padding:20px;margin-top:60px;margin-left:60px;background-color:#F2FBEF;margin:200px 300px;border:5px solid black;">
      <form action="login.do" method="post">
-         
-      <legend align="center">Login</legend>
-      <label>Nom</label>
+        <div align="center"
+             <legend>Login</legend><br><br>
+      <label>Nom d'usuari</label>
       <input type="text" name="usuari"/><br>
-      <label>Contrasenya</label>
-      <input type="password" name="pass" /><br>
+      <br><label>Contrasenya</label>
+      <input type="password" name="pass" /><br><br>
+        <input align="center" type="submit" value="Iniciar Sesion"/></div>
         <% if(request.getAttribute("error")!=null ){ %>
             <p class="errorMessage"> Usuari o contrasenya incorrecte </p>
         <% } %>
-      <input type="submit" value="Iniciar Sesion"/>
     </form>
 
 </div>
