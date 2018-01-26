@@ -15,6 +15,7 @@ public class Professor {
     private String usuari;
     private int id;
     private ArrayList<Projecte> listProjectes;
+    private Boolean valid = false;
     
     public Professor(){
         
@@ -69,6 +70,14 @@ public class Professor {
     
     public void addProjecte(Projecte p){
         listProjectes.add(p);
+    }
+    
+    public boolean isValid(){
+        return valid;
+    }
+    
+    public void setValid(boolean valid){
+        this.valid = valid;
     }
     
 }
