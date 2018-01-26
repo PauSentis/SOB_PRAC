@@ -14,7 +14,7 @@ public class Professor {
     private String contrasenya;
     private String usuari;
     private int id;
-    private ArrayList<Projecte> listProjectes;
+    private ArrayList<Projecte> listProjectes = new ArrayList<>();
     private Boolean valid = false;
     
     public Professor(){
@@ -72,7 +72,14 @@ public class Professor {
         listProjectes.add(p);
     }
     
-    public boolean isValid(){
+    public boolean isValid(String pass){
+        
+        if(contrasenya.equals(pass)){
+            valid = true;
+        }else{
+            valid = false;
+        }
+        
         return valid;
     }
     

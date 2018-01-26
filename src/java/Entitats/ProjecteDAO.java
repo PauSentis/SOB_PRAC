@@ -159,7 +159,7 @@ public class ProjecteDAO implements DAO.Dao{
     }
 
     
-        public ArrayList<Projecte> findByProfessor(int IDprofessor) throws ServletException, IOException {
+    public ArrayList<Projecte> findByProfessor(int IDprofessor) throws ServletException, IOException {
         
             ArrayList<Projecte> projectes = findAll();
             ArrayList<Projecte> result = new ArrayList<>();

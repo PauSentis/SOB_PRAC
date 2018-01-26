@@ -5,8 +5,12 @@
  */
 package cat.urv.deim.sob.command;
 
+import Entitats.ProfessorDAO;
+import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
+import cat.urv.deim.sob.Projecte;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -24,27 +28,20 @@ public class LoginCommand implements Command{
         
         ServletContext context = request.getSession().getServletContext();
         
-        Professor profe = new Professor();
-
-        profe.setUsuari(request.getParameter("usuari"));
-        profe.setContrasenya(request.getParameter("pass"));
+        ProfessorDAO professorDAO = new ProfessorDAO();
         
+        Professor profe = professorDAO.findByProfessor(request.getParameter("usuari"));
         
-
-        if(profe.isValid()){
+        if(profe==null||!profe.isValid(request.getParameter("usuari"))){
+            request.setAttribute("error", true);
+            context.getRequestDispatcher("/login.jsp").forward(request, response);
+        }else{
             HttpSession session = request.getSession(true);
+            ProjecteDAO dao = new ProjecteDAO();
+            ArrayList<Projecte> proj = dao.findByProfessor(profe.getId());
+            request.setAttribute("proj", proj);
             session.setAttribute("currentSessionUser", profe);
-            response.sendRedirect("userLogged.jsp");
+            context.getRequestDispatcher("/userLogged.jsp").forward(request, response);
         }
-
-        else{
-             request.setAttribute("error", true);
-             context.getRequestDispatcher("/login.jsp").forward(request, response);
-             return;
-        }
-
     }
-    
-    
-    
 }

@@ -24,8 +24,8 @@ import javax.servlet.ServletException;
  */
 public class ProfessorDAO implements DAO.Dao{
     
-   @Override
-    public ArrayList<Projecte> findAll() throws ServletException, IOException {
+    @Override
+    public ArrayList<Professor> findAll() throws ServletException, IOException {
         ArrayList<Projecte> projectes = new ArrayList<>();
         ArrayList<Professor> professors = new ArrayList<>();
         try {
@@ -54,7 +54,7 @@ public class ProfessorDAO implements DAO.Dao{
                     if(p.getId()==idProj){
                         for(Professor profe: professors){
                             if(profe.getId()==idProfe){
-                                p.addProfessor(profe);
+                                profe.addProjecte(p);
                             }
                         }
                     }
@@ -66,7 +66,29 @@ public class ProfessorDAO implements DAO.Dao{
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProjecteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return projectes;
-    } 
+        return professors;
+    }
+    
+    
+    
+    public Professor findByProfessor(String user) throws ServletException, IOException {
+        
+        ArrayList<Professor> professors = findAll();
+        ArrayList<Professor> result = new ArrayList<>();
+
+        for(Professor profe: professors){
+            for(Projecte p: profe.getListProjectes()){
+                if(profe.getUsuari().equals(user)){
+                    result.add(profe);
+                }
+            }
+        }
+        
+        if(result.size()>0)
+            return result.get(0);
+        else
+            return null;
+    }
+    
     
 }

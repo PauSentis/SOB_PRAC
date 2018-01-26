@@ -1,28 +1,97 @@
-<%@ page language="java" 
-         contentType="text/html; charset=windows-1256"
-         pageEncoding="windows-1256"
-         import="cat.urv.deim.sob.Professor"
-   %>
- 
-   <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-   "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="java.util.ArrayList"%>
+<%@page import="cat.urv.deim.sob.Projecte"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Llistat dels TFGs actius</title>
+        
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    text-align: center;
+                }
 
-   <html>
+            body {margin:0;}
 
-      <head>
-         <meta http-equiv="Content-Type" 
-            content="text/html; charset=windows-1256">
-         <title>   User Logged Successfully   </title>
-      </head>
-	
-      <body>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
 
-         <center>
-             <% Professor currentUser = (Professor) session.getAttribute("currentSessionUser");%>
-			
-            Welcome <%= currentUser.getNom() %>
-         </center>
+            li {
+                border-right: 1px solid #bbb;
+                float: left;
+            }
 
-      </body>
-	
-   </html>
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+            .active {
+                background-color: #4CAF50;
+            }
+        </style>
+</head>
+<body>
+
+<ul>
+  <li><a href="TFGactius.do">Projectes Actius</a></li>
+  <li><a href="TFGanteriors.do">Projectes Anteriors</a></li>
+  <li><a href="TFGtots.do">Tots els projectes</a></li>
+  <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
+</ul>
+
+<div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
+
+    <table style="width:50%">
+        <thead>
+            <tr>
+                <th>Títol</th>
+                <th>Professors</th>
+                <th>Estat</th>
+                <th>Grau</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("proj");
+                out.print("<tr>");
+                for(Projecte projecte : list){
+                    String url;
+                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>");
+                    for (int i =0; i<projecte.getListProfessor().size(); i++){
+                        url = "TfgsProfe.do?id="+projecte.getListProfessor().get(i).getId();
+                        if(i!=projecte.getListProfessor().size()-1){
+                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+", </a>");
+                        }else{
+                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+" </a>");
+                        }
+                       
+                    }
+                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
+                }
+            %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
