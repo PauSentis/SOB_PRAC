@@ -14,7 +14,7 @@
                     text-align: center;
                 }
 
-            body {margin:0;background-color:#F2FBEF;}
+            body {margin:0;}
 
             ul {
                 list-style-type: none;
@@ -58,23 +58,16 @@
   <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
 
-<div style="padding:20px;margin-top:60px;margin-left:10px;background-color:#F2FBEF;height:1500px;">
+<div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:1500px;">
 
-    <table style="width:100%">
+    <table style="width:50%">
         <thead>
             <tr>
                 <th>Títol</th>
                 <th>Professors</th>
                 <th>Professors</th>
                 <th>Estat</th>
-                <th>Estudis</th>
-                <th>Descripció</th>
-                <th>Estudiant/s</th>
-                <th>Recursos</th>
-                <th>Data defensa</th>
-                <th>Data modificació</th>
-                <th>Data creació</th>
-                <th>Qualificació</th>
+                <th>Grau</th>
             </tr>
         </thead>
         <tbody>
@@ -93,7 +86,7 @@
                         }
                        
                     }
-                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><td>"+projecte.getDescripcio()+"</td><td>"+projecte.getEstudiants()+"</td><td>"+projecte.getRecursos()+"</td><td>"+projecte.getData_defensa()+"</td><td>"+projecte.getData_modificacio()+"</td><td>"+projecte.getData_creacio()+"</td><td>"+projecte.getQualificacio()+"</td><tr>");
+                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><tr>");
                 }
             %>
         </tbody>
