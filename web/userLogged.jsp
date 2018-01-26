@@ -65,6 +65,7 @@
             <tr>
                 <th>Títol</th>
                 <th>Professors</th>
+                <th>Professors</th>
                 <th>Estat</th>
                 <th>Estudis</th>
                 <th>Descripció</th>
