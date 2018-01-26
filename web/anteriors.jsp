@@ -60,7 +60,7 @@
 
 <div style="padding:20px;margin-top:60px;margin-left:10px;background-color:#F2FBEF;height:1500px;">
 
-    <table style="width:50%">
+    <table style="width:100%">
         <thead>
             <tr>
                 <th>Títol</th>
