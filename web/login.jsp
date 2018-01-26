@@ -60,7 +60,7 @@
   <li class="active" style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
 </ul>
     
-<div style="padding:20px;margin-top:30px;background-color:#F2FBEF;height:1500px;">
+<div style="padding:20px;margin-top:30px;background-color:#F2FBEF;height:1500px;margin: 300 300;">
 
      <form action="login.do" method="post">
          

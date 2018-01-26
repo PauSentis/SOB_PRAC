@@ -28,6 +28,8 @@ public class LoginCommand implements Command{
 
         profe.setUsuari(request.getParameter("usuari"));
         profe.setContrasenya(request.getParameter("pass"));
+        
+        
 
         if(profe.isValid()){
             HttpSession session = request.getSession(true);
