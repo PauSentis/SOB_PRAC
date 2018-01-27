@@ -23,6 +23,10 @@
     {
       "URI": "/modificar",
       "class": "cat.urv.deim.sob.command.ModificarCommand" 
+    },
+    {
+      "URI": "/fermodificacio",
+      "class": "cat.urv.deim.sob.command.FerModificacioCommand" 
     }
   ]
 }
