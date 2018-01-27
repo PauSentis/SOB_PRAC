@@ -23,20 +23,35 @@ public class ModificarCommand implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        ServletContext context = request.getSession().getServletContext();
         ProjecteDAO dao = new ProjecteDAO();
         int idProj = Integer.parseInt(request.getParameter("idProj"));
         Projecte p = dao.findById(idProj);
         request.setAttribute("projecgteM", p);
         System.out.println("Estat"+p.getTitol());
         
-        
-        if(p.getEstat().equals("Acabat")){
-           ServletContext context = request.getSession().getServletContext();
-            context.getRequestDispatcher("/acabat.jsp").forward(request, response); 
-        }else{
-            ServletContext context = request.getSession().getServletContext();
-            context.getRequestDispatcher("/modificar.jsp").forward(request, response);
+        switch (p.getEstat()){
+            case "Proposat":
+                context.getRequestDispatcher("/proposat.jsp").forward(request, response);
+                break;
+            
+            case "Assignat":
+                context.getRequestDispatcher("/assignat.jsp").forward(request, response);
+                break;
+                
+            case "Acabat":
+                context.getRequestDispatcher("/acabat.jsp").forward(request, response);
+                break;
+                
+            case "Pendent de defensa":
+                context.getRequestDispatcher("/pendentdedefensa.jsp").forward(request, response);
+                break;
+                
+            case "Defensat":
+                context.getRequestDispatcher("/defensat.jsp").forward(request, response);
+                break;
         }
+        
         
         /**
         ProjecteDAO dao = new ProjecteDAO();

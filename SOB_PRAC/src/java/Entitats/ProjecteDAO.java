@@ -175,7 +175,7 @@ public class ProjecteDAO implements DAO.Dao{
     }
     
     public void update (int id, String title, String desc, String state, String estudiants, String estudis, 
-            String recursos, String data_defensa, String nota, String data_creacio, String data_mod){
+            String recursos, String data_defensa, String nota, String data_creacio, String data_mod, ArrayList<Professor> professors){
             
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -194,6 +194,11 @@ public class ProjecteDAO implements DAO.Dao{
                     + ", DATA_MODIFICACIO ="+data_mod
                     + "WHERE IDPROJ="+id;
             ResultSet rs = stmt1.executeQuery(query);
+            
+            for(Professor p: professors){
+                query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+id+")";
+                rs = stmt1.executeQuery(query);
+            }
            
         connect.close();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -208,6 +213,6 @@ public class ProjecteDAO implements DAO.Dao{
                 if(proj.getId()==id) return proj;
             }
             return null;
-        }
+    }
     
 }
