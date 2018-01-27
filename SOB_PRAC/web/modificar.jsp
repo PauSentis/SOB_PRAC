@@ -9,12 +9,6 @@
         <title>Llistat de tots els TFGs</title>
         
         <style>
-            table, th, td {
-                    border: 1px solid black;
-                    border-collapse: collapse;
-                    text-align: center;
-                }
-
             body {margin:0;background-color:#F2FBEF;}
 
             ul {
@@ -61,43 +55,42 @@
 
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
 
-    <table style="width:100%">
-        <thead>
+        <table border="1" align="center">
             <tr>
-                <th>Títol</th>
-                <th>Professors</th>
-                <th>Estat</th>
-                <th>Estudis</th>
-                <th>Descripció</th>
-                <th>Estudiant/s</th>
-                <th>Recursos</th>
-                <th>Data defensa</th>
-                <th>Data modificació</th>
-                <th>Data creació</th>
-                <th>Qualificació</th>
+
+              <td> Nombre</td>
+              <td><input name="nombre" type="text" size="35" maxlength="35">
             </tr>
-        </thead>
-        <tbody>
-            <%
-                ArrayList<Projecte> list = (ArrayList<Projecte>) request.getAttribute("tots");
-                out.print("<tr>");
-                for(Projecte projecte : list){
-                    String url;
-                    out.print("<tr><td>"+projecte.getTitol()+"</td><td>");
-                    for (int i =0; i<projecte.getListProfessor().size(); i++){
-                        url = "TfgsProfe.do?id="+projecte.getListProfessor().get(i).getId();
-                        if(i!=projecte.getListProfessor().size()-1){
-                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+", </a>");
-                        }else{
-                             out.print("<a href= "+url+">"+ projecte.getListProfessor().get(i).getNom()+" </a>");
-                        }
-                       
-                    }
-                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><td>"+projecte.getDescripcio()+"</td><td>"+projecte.getEstudiants()+"</td><td>"+projecte.getRecursos()+"</td><td>"+projecte.getData_defensa()+"</td><td>"+projecte.getData_modificacio()+"</td><td>"+projecte.getData_creacio()+"</td><td>"+projecte.getQualificacio()+"</td><tr>");
-                }
-            %>
-        </tbody>
-    </table>
+            <tr>
+
+                <td> Apellido Paterno</td>
+                <td><input name="apellidoP" type="text" size="35" maxlength="35">
+
+            </tr>
+            <tr>
+                <td> Apellido Materno</td>
+                <td><input name="apellidoM" type="text" size="35" maxlength="35">
+
+            </tr>
+            <tr>
+                <td> E-mail</td>
+                <td><input name="email" type="text" size="35" maxlength="35">
+
+            </tr>
+            <tr>
+                <td> Edad </td>
+                <td><input name="edad" type="text" size="2" maxlength="2">
+            </tr>
+            <tr >
+                <td> Sexo </td>
+                <td>
+                <input  type="radio" name="rd">Masculino
+                <input type="radio" name="rd">Femenino
+            <input type="button" name="enviar" title="enviar" value="Enviar">
+           </td>
+    
+    </tr>
+</table>
 
 </div>
 
