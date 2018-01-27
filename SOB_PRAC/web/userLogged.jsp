@@ -89,7 +89,10 @@
                         }
                        
                     }
-                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><td>"+projecte.getDescripcio()+"</td><td>"+projecte.getEstudiants()+"</td><td>"+projecte.getRecursos()+"</td><td>"+projecte.getData_defensa()+"</td><td>"+projecte.getData_modificacio()+"</td><td>"+projecte.getData_creacio()+"</td><td>"+projecte.getQualificacio()+"</td><tr>");
+                    out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><td>"+projecte.getDescripcio()+"</td><td>"+projecte.getEstudiants()+"</td><td>"+projecte.getRecursos()+"</td><td>"+projecte.getData_defensa()+"</td><td>"+projecte.getData_modificacio()+"</td><td>"+projecte.getData_creacio()+"</td><td>"+projecte.getQualificacio()+"</td><td>");%>
+               <input type="submit" value="Modificar"/>
+                    <%
+                    out.print("</td><tr>");
                 }
             %>
         </tbody>
