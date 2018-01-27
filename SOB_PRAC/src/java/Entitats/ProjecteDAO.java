@@ -174,4 +174,33 @@ public class ProjecteDAO implements DAO.Dao{
         return result;
     }
     
+    public void update (int id, String title, String desc, String state, String estudiants, String estudis, 
+            String recursos, String data_defensa, String nota, String data_creacio, String data_mod){
+            
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/SOBDB", "root", "root");
+            Statement stmt1 = connect.createStatement();
+            
+            String query = "UPDATE SOBDB.PROJECTE SET TITOL="+title
+                    + ", DESCRIPCIO ="+desc
+                    + ", ESTAT ="+state
+                    + ", ESTUDIANTS ="+estudiants
+                    + ", ESTUDIS ="+estudis
+                    + ", RECURSOS ="+recursos
+                    + ", DATA_DEFENSA ="+data_defensa
+                    + ", QUALIFICACIO ="+nota
+                    + ", DATA_CREACIO ="+data_creacio
+                    + ", DATA_MODIFICACIO ="+data_mod
+                    + "WHERE IDPROJ="+id;
+            ResultSet rs = stmt1.executeQuery(query);
+           
+        connect.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ProjecteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+    }
+    
 }
