@@ -62,9 +62,9 @@
               <td> Títol</td>
               <td>
                   <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=titol type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getTitol()+"' size=100 maxlength=100>");
+                      out.print("<input name=titol type=text value='"+p.getTitol()+"' size=100 maxlength=100>");
                   }%>
             </tr>
             <tr>
@@ -72,9 +72,9 @@
                 <td> Professors</td>
                 <td>
                     <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=professors type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getProfessors().toString()+"' size=100 maxlength=100>");
+                      out.print("<input name=professors type=text value='"+p.getProfessors().toString()+"' size=100 maxlength=100>");
                   }%>
 
             </tr>
@@ -82,36 +82,36 @@
                 <td> Estudis</td>
                 <td>
                     <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=estudis type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getEstudis()+"' size=100 maxlength=100>");
+                      out.print("<input name=estudis type=text value='"+p.getEstudis()+"' size=100 maxlength=100>");
                   }%>
             </tr>
             <tr>
                 <td> Descripció</td>
                 <td>
                     <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=descripcio type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getDescripcio()+"' size=100 maxlength=100>");
+                      out.print("<input name=descripcio type=text value='"+p.getDescripcio()+"' size=100 maxlength=100>");
                   }%>
             </tr>
             <tr>
                 <td> Estudiants</td>
                 <td>
                     <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=estudiants type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getEstudiants()+"' size=100 maxlength=100>");
+                      out.print("<input name=estudiants type=text value='"+p.getEstudiants()+"' size=100 maxlength=100>");
                   }%>
             </tr>
             <tr>
                 <td> Recursos </td>
                 <td>
                     <%if(p==null){
-                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                      out.print("<input name=recursos type=text size=100 maxlength=100>");
                   }else{
-                      out.print("<input name=nombre type=text value='"+p.getRecursos()+"' size=100 maxlength=100>");
+                      out.print("<input name=recursos type=text value='"+p.getRecursos()+"' size=100 maxlength=100>");
                   }%> 
             
             
@@ -120,11 +120,11 @@
     <tr >
        <td> Estat </td>
        <td>
-          <input  type="radio" name="rd">Proposat
-          <input type="radio" name="rd">Assignat
-          <input type="radio" name="rd">Acabat
-          <input type="radio" name="rd">Pendent de defensa
-          <input type="radio" name="rd">Defensat
+          <input  type="radio" name="proposat">Proposat
+          <input type="radio" name="assignat">Assignat
+          <input type="radio" name="acabat">Acabat
+          <input type="radio" name="pendent_de_defensa">Pendent de defensa
+          <input type="radio" name="defensat">Defensat
       </td>
     
     </tr>
