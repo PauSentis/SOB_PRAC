@@ -23,10 +23,20 @@ public class ModificarCommand implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        ProjecteDAO dao = new ProjecteDAO();
         int idProj = Integer.parseInt(request.getParameter("idProj"));
-        System.out.println("ID: "+idProj);
-        ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/modificar.jsp").forward(request, response);
+        Projecte p = dao.findById(idProj);
+        request.setAttribute("projecgteM", p);
+        System.out.println("Estat"+p.getTitol());
+        
+        
+        if(p.getEstat().equals("Acabat")){
+           ServletContext context = request.getSession().getServletContext();
+            context.getRequestDispatcher("/acabat.jsp").forward(request, response); 
+        }else{
+            ServletContext context = request.getSession().getServletContext();
+            context.getRequestDispatcher("/modificar.jsp").forward(request, response);
+        }
         
         /**
         ProjecteDAO dao = new ProjecteDAO();

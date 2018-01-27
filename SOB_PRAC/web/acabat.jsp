@@ -54,12 +54,17 @@
 </ul>
 
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
-
+    <% Projecte p = (Projecte) request.getAttribute("projecgteM");%>
         <table border="1" align="center">
             <tr>
 
               <td> Títol</td>
-              <td><input name="nombre" type="text" size="35" maxlength="35">
+              <td>
+                  <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getTitol()+"' size=100 maxlength=100>");
+                  }%>
             </tr>
             <tr>
 
