@@ -23,6 +23,8 @@ public class ModificarCommand implements Command{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        int idProj = Integer.parseInt(request.getParameter("idProj"));
+        System.out.println("ID: "+idProj);
         ServletContext context = request.getSession().getServletContext();
         context.getRequestDispatcher("/modificar.jsp").forward(request, response);
         

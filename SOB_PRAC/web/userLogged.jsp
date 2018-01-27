@@ -90,7 +90,8 @@
                        
                     }
                     out.print("</td><td>"+projecte.getEstat()+"</td><td>"+projecte.getEstudis()+"</td><td>"+projecte.getDescripcio()+"</td><td>"+projecte.getEstudiants()+"</td><td>"+projecte.getRecursos()+"</td><td>"+projecte.getData_defensa()+"</td><td>"+projecte.getData_modificacio()+"</td><td>"+projecte.getData_creacio()+"</td><td>"+projecte.getQualificacio()+"</td><td>");%>
-        <form action="modificar.do" method="post">       
+        <%
+            out.print("<form action=modificar.do?idProj="+projecte.getId()+" method=post>"); %>  
         <input type="submit" value="Modificar"/></form>
                     <%
                     out.print("</td><tr>");
