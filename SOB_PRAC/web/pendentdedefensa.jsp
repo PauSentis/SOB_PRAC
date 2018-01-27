@@ -56,6 +56,7 @@
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
     <% Projecte p = (Projecte) request.getAttribute("projecgteM");%>
     <form action="fermodificacio.do" method="post">
+        <% request.setAttribute("projM", p); %>
         <table border="1" align="center">
             <tr>
                
