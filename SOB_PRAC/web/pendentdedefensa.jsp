@@ -55,9 +55,10 @@
 
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
     <% Projecte p = (Projecte) request.getAttribute("projecgteM");%>
+    <form action="fermodificacio.do" method="post">
         <table border="1" align="center">
             <tr>
-
+               
               <td> Títol</td>
               <td>
                   <%if(p==null){
@@ -130,12 +131,13 @@
                   }else{
                       out.print("<input name=nombre type=text value='"+p.getData_modificacio()+"' size=100 maxlength=100>");
                   }%>
+            
             <input type="button" name="enviar" title="enviar" value="Enviar">
            </td>
     
     </tr>
 </table>
-
+    </form>
 </div>
 
 </body>
