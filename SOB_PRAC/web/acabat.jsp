@@ -129,11 +129,11 @@
     <tr >
        <td> Estat </td>
        <td>
-          <input  type="radio" name="proposat">Proposat
-          <input type="radio" name="assignat">Assignat
-          <input type="radio" name="acabat">Acabat
-          <input type="radio" name="pendent_de_defensa">Pendent de defensa
-          <input type="radio" name="defensat">Defensat
+          <input  type="radio" name="estat" value="proposat">Proposat
+          <input type="radio" name="estat" value="assignat">Assignat
+          <input type="radio" name="estat" value="acabat">Acabat
+          <input type="radio" name="estat" value="pendent_de_defensa">Pendent de defensa
+          <input type="radio" name="estat" value="defensat">Defensat
       </td>
     
     </tr>
