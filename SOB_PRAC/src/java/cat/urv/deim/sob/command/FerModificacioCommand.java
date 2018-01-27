@@ -5,7 +5,12 @@
  */
 package cat.urv.deim.sob.command;
 
+import Entitats.ProjecteDAO;
+import cat.urv.deim.sob.Professor;
+import cat.urv.deim.sob.Projecte;
 import java.io.IOException;
+import java.util.ArrayList;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +24,89 @@ public class FerModificacioCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        ServletContext context = request.getSession().getServletContext();
+        ProjecteDAO dao = new ProjecteDAO();
+        Projecte p = (Projecte) request.getAttribute("projM");
         
-
+        switch (p.getEstat()){
+            case "Proposat":
+                dao.update(p.getId(), 
+                        request.getParameter("titol"), 
+                        p.getDescripcio(), 
+                        request.getParameter("estat"), 
+                        p.getEstudiants(), 
+                        request.getParameter("estudis"), 
+                        p.getRecursos(), 
+                        p.getData_defensa(), 
+                        p.getQualificacio(), 
+                        request.getParameter("data_creacio"), 
+                        p.getData_modificacio(), 
+                        new ArrayList<Professor>());
+                break;
+            case "Assignat":
+                dao.update(p.getId(), 
+                        request.getParameter("titol"), 
+                        request.getParameter("descripcio"), 
+                        request.getParameter("estat"), 
+                        request.getParameter("estudiants"), 
+                        request.getParameter("estudis"), 
+                        request.getParameter("recursos"), 
+                        p.getData_defensa(), 
+                        p.getQualificacio(), 
+                        p.getData_creacio(), 
+                        p.getData_modificacio(), 
+                        new ArrayList<Professor>());
+                break;
+                
+            case "Acabat":
+                dao.update(p.getId(), 
+                        request.getParameter("titol"), 
+                        request.getParameter("descripcio"), 
+                        request.getParameter("estat"), 
+                        request.getParameter("estudiants"), 
+                        request.getParameter("estudis"), 
+                        request.getParameter("recursos"), 
+                        p.getData_defensa(), 
+                        p.getQualificacio(), 
+                        p.getData_creacio(), 
+                        request.getParameter("data_modificacio"), 
+                        new ArrayList<Professor>());
+                break;
+                
+            case "Pendent de defensa":
+                dao.update(p.getId(), 
+                        request.getParameter("titol"), 
+                        request.getParameter("descripcio"), 
+                        request.getParameter("estat"), 
+                        request.getParameter("estudiants"), 
+                        request.getParameter("estudis"), 
+                        request.getParameter("recursos"), 
+                        request.getParameter("data_defensa"), 
+                        p.getQualificacio(), 
+                        p.getData_creacio(), 
+                        request.getParameter("data_modificacio"), 
+                        new ArrayList<Professor>());
+                break;
+                
+            case "Defensat":
+                dao.update(p.getId(), 
+                        request.getParameter("titol"), 
+                        request.getParameter("descripcio"), 
+                        request.getParameter("estat"), 
+                        request.getParameter("estudiants"), 
+                        request.getParameter("estudis"), 
+                        request.getParameter("recursos"), 
+                        request.getParameter("data_defensa"), 
+                        request.getParameter("qualificacio"), 
+                        p.getData_creacio(), 
+                        request.getParameter("data_modificacio"), 
+                        new ArrayList<Professor>());
+                break;
+        }
+        /*ArrayList<Projecte> proj = dao.findByProfessor(profe.getId());
+        request.setAttribute("proj", proj);
+        session.setAttribute("currentSessionUser", profe);
+        context.getRequestDispatcher("/userLogged.jsp").forward(request, response);*/
     }
     
 }

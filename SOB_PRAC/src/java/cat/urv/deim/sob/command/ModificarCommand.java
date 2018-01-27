@@ -51,16 +51,6 @@ public class ModificarCommand implements Command{
                 context.getRequestDispatcher("/defensat.jsp").forward(request, response);
                 break;
         }
-        
-        
-        /**
-        ProjecteDAO dao = new ProjecteDAO();
-        Projecte p = (Projecte) request.getAttribute("p");
-        //dao.update(p.getId(),p.getTitol(),p.getDescripcio(),p.getEstat(),p.getEstudiants(),p.getEstudis(),p.getRecursos(),p.getData_defensa(),p.getQualificacio(),p.getData_creacio(),p.getData_modificacio());
-        request.setAttribute("proj", p);
-        ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/modificar.jsp").forward(request, response);
-        */
     }
     
 }
