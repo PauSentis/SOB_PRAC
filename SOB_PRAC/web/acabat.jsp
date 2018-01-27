@@ -122,11 +122,22 @@
                   }else{
                       out.print("<input name=nombre type=text value='"+p.getData_modificacio()+"' size=100 maxlength=100>");
                   }%>
-                  
-            <input type="button" name="enviar" title="enviar" value="Enviar">
+            
+            
            </td>
+    </tr>
+    <tr >
+       <td> Estat </td>
+       <td>
+          <input  type="radio" name="rd">Proposat
+          <input type="radio" name="rd">Assignat
+          <input type="radio" name="rd">Acabat
+          <input type="radio" name="rd">Pendent de defensa
+          <input type="radio" name="rd">Defensat
+      </td>
     
     </tr>
+    <input type="button" name="enviar" title="enviar" value="Enviar">
 </table>
     </form>
 </div>
