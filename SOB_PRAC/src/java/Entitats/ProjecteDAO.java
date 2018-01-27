@@ -199,8 +199,15 @@ public class ProjecteDAO implements DAO.Dao{
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProjecteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         
     }
+    
+    public Projecte findById(int id) throws ServletException, IOException{
+            ArrayList<Projecte> projectes = this.findAll();
+            for(Projecte proj: projectes){
+                if(proj.getId()==id) return proj;
+            }
+            return null;
+        }
     
 }
