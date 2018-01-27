@@ -69,31 +69,58 @@
             <tr>
 
                 <td> Professors</td>
-                <td><input name="apellidoP" type="text" size="35" maxlength="35">
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getProfessors().toString()+"' size=100 maxlength=100>");
+                  }%>
 
             </tr>
             <tr>
                 <td> Estudis</td>
-                <td><input name="apellidoM" type="text" size="35" maxlength="35">
-
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getEstudis()+"' size=100 maxlength=100>");
+                  }%>
             </tr>
             <tr>
                 <td> Descripció</td>
-                <td><input name="email" type="text" size="35" maxlength="35">
-
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getDescripcio()+"' size=100 maxlength=100>");
+                  }%>
             </tr>
             <tr>
                 <td> Estudiants</td>
-                <td><input name="email" type="text" size="35" maxlength="35">
-
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getEstudiants()+"' size=100 maxlength=100>");
+                  }%>
             </tr>
             <tr>
                 <td> Recursos </td>
-                <td><input name="edad" type="text" size="2" maxlength="2">
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getRecursos()+"' size=100 maxlength=100>");
+                  }%> 
             </tr>
             <tr >
                 <td> Data modificació </td>
-                <td><input name="email" type="text" size="35" maxlength="35">
+                <td>
+                    <%if(p==null){
+                      out.print("<input name=nombre type=text size=100 maxlength=100>");
+                  }else{
+                      out.print("<input name=nombre type=text value='"+p.getData_modificacio()+"' size=100 maxlength=100>");
+                  }%>
             <input type="button" name="enviar" title="enviar" value="Enviar">
            </td>
     
