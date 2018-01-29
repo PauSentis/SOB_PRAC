@@ -46,13 +46,6 @@
 </head>
 <body>
 
-<ul>
-  <li><a href="TFGactius.do">Projectes Actius</a></li>
-  <li><a href="TFGanteriors.do">Projectes Anteriors</a></li>
-  <li><a class="active" href="TFGtots.do">Tots els projectes</a></li>
-  <li style="float:right"><a href="login.jsp">Iniciar Sessió</a></li>
-</ul>
-
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
     <% Projecte p = (Projecte) request.getAttribute("projecgteM");%>
     <form action="fermodificacio.do" method="post">
@@ -147,7 +140,7 @@
       </td>
     
     </tr>
-    <input type="submit" name="enviar" title="enviar" value="Enviar">
+    <td><input type="submit" name="enviar" title="enviar" value="Enviar"></td>
 </table>
     </form>
 </div>
