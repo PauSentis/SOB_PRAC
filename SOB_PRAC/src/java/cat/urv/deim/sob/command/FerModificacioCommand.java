@@ -5,11 +5,13 @@
  */
 package cat.urv.deim.sob.command;
 
+import Entitats.ProfessorDAO;
 import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
 import cat.urv.deim.sob.Projecte;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +30,40 @@ public class FerModificacioCommand implements Command {
         ProjecteDAO dao = new ProjecteDAO();
         Projecte p = (Projecte) context.getAttribute("projecgteM");
         
+        ProfessorDAO profeDAO = new ProfessorDAO();
+        
+        String s = request.getParameter("professors");
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Professor> professors = new ArrayList();
+        
+        for(int n=0; n<s.length(); n++){
+            char c = s.charAt(n);
+            System.out.println("Lletra: "+c);
+            if(c==','){
+                if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
+                    professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+                }
+                sb = new StringBuilder();
+            }else{
+                sb.append(c);
+            }
+        }
+        
+        if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
+            professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+        }
+        
+        System.out.println("Llista: "+professors.toString());
+        for(Professor profeProj: p.getListProfessor()){
+            for (Professor profeAdd : professors) {
+                if(profeProj.getId()==profeAdd.getId()){
+                    professors.remove(profeAdd);
+                }
+            }
+        }
+        
+        
+        
         switch (p.getEstat()){
             case "Proposat":
                 dao.update(p.getId(), 
@@ -41,7 +77,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         request.getParameter("data_creacio"), 
                         p.getData_modificacio(), 
-                        new ArrayList<Professor>());
+                        professors);
                 break;
             case "Assignat":
                 dao.update(p.getId(), 
@@ -55,7 +91,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         p.getData_modificacio(), 
-                        new ArrayList<Professor>());
+                        professors);
                 break;
                 
             case "Acabat":
@@ -71,7 +107,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        new ArrayList<Professor>());
+                        professors);
                 break;
                 
             case "Pendent de defensa":
@@ -86,7 +122,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        new ArrayList<Professor>());
+                        professors);
                 break;
                 
             case "Defensat":
@@ -101,7 +137,7 @@ public class FerModificacioCommand implements Command {
                         request.getParameter("qualificacio"), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        new ArrayList<Professor>());
+                        professors);
                 break;
         }
         
