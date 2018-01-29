@@ -215,25 +215,22 @@ public class ProjecteDAO implements DAO.Dao{
             return null;
     }
     
-    public void insert (String title, String state, String estudis, String data_creacio, ArrayList<Professor> professors){
+    public void insert (String title, String state, String estudis, String data_creacio, ArrayList<Professor> professors) throws ServletException, IOException{
             
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             try (Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/SOBDB", "root", "root")) {
                 Statement stmt1 = connect.createStatement();
                 
-                String query = "INSERT INTO SOBDB.PROJECTE TITOL'="+title
-                        + "', ESTAT ='"+state
-                        + "', ESTUDIS ='"+estudis
-                        + "', DATA_CREACIO ='"+data_creacio+"'";
-                stmt1.executeUpdate(query);
-                
-                for(Professor p: professors){
-                    query ="INSERT INTO SOBDB.PROJECTE (TITOL, ESTAT, ESTUDIS, DATA_CREACIO) VALUES "
+                String query ="INSERT INTO SOBDB.PROJECTE (TITOL, ESTAT, ESTUDIS, DATA_CREACIO) VALUES "
                             + "('"+title
                             + "','"+state
                             + "','"+estudis
                             + "','"+data_creacio+"')";
+                stmt1.executeUpdate(query);
+                
+                for(Professor p: professors){
+                    query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+this.findAll().size()+")";
                     stmt1.executeUpdate(query);
                 }
             }
