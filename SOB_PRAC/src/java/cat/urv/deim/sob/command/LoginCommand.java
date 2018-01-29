@@ -27,12 +27,21 @@ public class LoginCommand implements Command{
             throws ServletException, IOException {
         
         ServletContext context = request.getSession().getServletContext();
+        Professor profe;
+       
         
-        ProfessorDAO professorDAO = new ProfessorDAO();
+        if(((Professor) context.getAttribute("user"))==null){
+            ProfessorDAO professorDAO = new ProfessorDAO();
+            profe = professorDAO.findByProfessor(request.getParameter("usuari"));
+            context.setAttribute("user", profe);
+            context.setAttribute("pass", request.getParameter("pass"));
+        }else{
+            profe = (Professor) context.getAttribute("user");
+        }
         
-        Professor profe = professorDAO.findByProfessor(request.getParameter("usuari"));
+      
         
-        if(profe==null||!profe.isValid(request.getParameter("pass"))){
+        if(profe==null||!profe.isValid((String) context.getAttribute("pass"))){
             request.setAttribute("error", true);
             context.getRequestDispatcher("/login.jsp").forward(request, response);
         }else{

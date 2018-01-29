@@ -180,22 +180,24 @@ public class ProjecteDAO implements DAO.Dao{
             Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/SOBDB", "root", "root");
             Statement stmt1 = connect.createStatement();
             
-            String query = "UPDATE SOBDB.PROJECTE SET TITOL="+title
-                    + ", DESCRIPCIO ="+desc
-                    + ", ESTAT ="+state
-                    + ", ESTUDIANTS ="+estudiants
-                    + ", ESTUDIS ="+estudis
-                    + ", RECURSOS ="+recursos
-                    + ", DATA_DEFENSA ="+data_defensa
-                    + ", QUALIFICACIO ="+nota
-                    + ", DATA_CREACIO ="+data_creacio
-                    + ", DATA_MODIFICACIO ="+data_mod
-                    + "WHERE IDPROJ="+id;
-            ResultSet rs = stmt1.executeQuery(query);
+            String query = "UPDATE SOBDB.PROJECTE SET TITOL='"+title
+                        + "', DESCRIPCIO ='"+desc
+                        + "', ESTAT ='"+state
+                        + "', ESTUDIANTS ='"+estudiants
+                        + "', ESTUDIS ='"+estudis
+                        + "', RECURSOS ='"+recursos
+                        + "', DATA_DEFENSA ='"+data_defensa
+                        + "', QUALIFICACIO ='"+nota
+                        + "', DATA_CREACIO ='"+data_creacio
+                        + "', DATA_MODIFICACIO ='"+data_mod
+                        + "' WHERE IDPROJ="+id;
+            
+            System.out.println(query);
+            stmt1.executeUpdate(query);
             
             for(Professor p: professors){
                 query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+id+")";
-                rs = stmt1.executeQuery(query);
+                stmt1.executeUpdate(query);
             }
            
         connect.close();
@@ -232,11 +234,11 @@ public class ProjecteDAO implements DAO.Dao{
                         + ", DATA_CREACIO ="+data_creacio
                         + ", DATA_MODIFICACIO ="+data_mod
                         + "WHERE IDPROJ="+id;
-                ResultSet rs = stmt1.executeQuery(query);
+                stmt1.executeUpdate(query);
                 
                 for(Professor p: professors){
                     query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+id+")";
-                    rs = stmt1.executeQuery(query);
+                    stmt1.executeUpdate(query);
                 }
             }
         } catch (ClassNotFoundException | SQLException ex) {
