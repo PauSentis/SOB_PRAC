@@ -208,7 +208,7 @@ public class ProjecteDAO implements DAO.Dao{
     }
     
     public Projecte findById(int id) throws ServletException, IOException{
-            ArrayList<Projecte> projectes = this.findAll();
+            ArrayList<Projecte> projectes = findAll();
             for(Projecte proj: projectes){
                 if(proj.getId()==id) return proj;
             }
@@ -230,7 +230,7 @@ public class ProjecteDAO implements DAO.Dao{
                 stmt1.executeUpdate(query);
                 
                 for(Professor p: professors){
-                    query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+this.findAll().size()+")";
+                    query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+findAll().size()+")";
                     stmt1.executeUpdate(query);
                 }
             }

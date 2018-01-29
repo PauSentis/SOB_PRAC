@@ -74,15 +74,19 @@ public class ProfessorDAO implements DAO.Dao{
     public Professor findByProfessor(String user) throws ServletException, IOException {
         
         ArrayList<Professor> professors = findAll();
-        Professor result = null;
-
         for(Professor profe: professors){
-            if(profe.getUsuari().equals(user)){
-                result = profe;
-            }
+            if(profe.getUsuari().equals(user)) return profe;
         }
+        return null; 
+    }
+    
+    public Professor findByNom(String nom) throws ServletException, IOException {
         
-        return result;
+        ArrayList<Professor> professors = findAll();
+        for(Professor profe: professors){
+            if(profe.getNom().equals(nom)) return profe;
+        }
+        return null;        
     }
     
 }
