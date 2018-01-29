@@ -27,7 +27,6 @@ public class FerModificacioCommand implements Command {
         ServletContext context = request.getSession().getServletContext();
         ProjecteDAO dao = new ProjecteDAO();
         Projecte p = (Projecte) context.getAttribute("projecgteM");
-        System.err.println("estat: "+p.getEstat());
         
         switch (p.getEstat()){
             case "Proposat":

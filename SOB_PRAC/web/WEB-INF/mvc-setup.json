@@ -27,6 +27,14 @@
     {
       "URI": "/fermodificacio",
       "class": "cat.urv.deim.sob.command.FerModificacioCommand" 
+    },
+    {
+      "URI": "/afegir",
+      "class": "cat.urv.deim.sob.command.AfegirCommand" 
+    },
+    {
+      "URI": "/ferAfegir",
+      "class": "cat.urv.deim.sob.command.FerAfegirCommand" 
     }
   ]
 }
