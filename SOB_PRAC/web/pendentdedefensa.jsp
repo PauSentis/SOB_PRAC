@@ -47,9 +47,14 @@
 <body>
 
 <div style="padding:20px;margin-top:60px;margin-left:10px;height:1500px;">
-    <% Projecte p = (Projecte) request.getAttribute("projecgteM");%>
-    <form action="fermodificacio.do" method="post">
-        <% request.setAttribute("projM", p); %>
+    <% Projecte p = (Projecte) request.getAttribute("projecgteM");
+       if(p==null){
+           out.print("<form action=ferAfegir.do method=post>");
+       }else{
+           out.print("<form action=fermodificacio.do method=post>");
+       }
+    
+         request.setAttribute("projM", p); %>
         <table border="1" align="center">
             <tr>
                
