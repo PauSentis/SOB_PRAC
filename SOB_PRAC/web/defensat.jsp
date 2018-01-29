@@ -156,7 +156,7 @@
       </td>
     
     </tr>
-    <input type="button" name="enviar" title="enviar" value="Enviar">
+    <input type="submit" name="enviar" title="enviar" value="Enviar">
 </table>
     </form>
 </div>
