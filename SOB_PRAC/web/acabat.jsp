@@ -132,7 +132,7 @@
        <td>
           <input  type="radio" name="estat" value="Proposat">Proposat
           <input type="radio" name="estat" value="Assignat">Assignat
-          <input type="radio" name="estat" value="Acabat">Acabat
+          <input type="radio" name="estat" value="Acabat" checked="checked">Acabat
           <input type="radio" name="estat" value="Pendent de defensa">Pendent de defensa
           <input type="radio" name="estat" value="Defensat">Defensat
       </td>

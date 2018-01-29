@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/proposat.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/index.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/install.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/src/java/Entitats/ProjecteDAO.java</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/src/java/cat/urv/deim/sob/command/ModificarCommand.java</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/defensat.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/perProfe.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/src/java/cat/urv/deim/sob/command/LoginCommand.java</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/anteriors.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/userLogged.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/acabat.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/src/java/cat/urv/deim/sob/command/FerModificacioCommand.java</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/assignat.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/login.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/WEB-INF/mvc-setup.json</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/pendentdedefensa.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/web/actius.jsp</file>
+            <file>file:/C:/Users/Toni%20Ciordia/Documents/NetBeansProjects/SOB_PRAC/SOB_PRAC/SOB_PRAC/src/java/cat/urv/deim/sob/command/TFGActiusCommand.java</file>
+        </group>
     </open-files>
 </project-private>
