@@ -5,6 +5,7 @@
  */
 package cat.urv.deim.sob.command;
 
+import Entitats.ProfessorDAO;
 import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
 import cat.urv.deim.sob.Projecte;
@@ -27,13 +28,35 @@ public class FerAfegirCommand implements Command{
         ServletContext context = request.getSession().getServletContext();
         ProjecteDAO dao = new ProjecteDAO();
         
-        StringBuilder s = new StringBuilder();
+        ProfessorDAO profeDAO = new ProfessorDAO();
+        
+        String s = request.getParameter("professors");
+        StringBuilder sb = new StringBuilder();
+        ArrayList<Professor> professors = new ArrayList();
+        
+        for(int n=0; n<s.length(); n++){
+            char c = s.charAt(n);
+            System.out.println("Lletra: "+c);
+            if(c==','){
+                if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
+                    professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+                }
+                sb = new StringBuilder();
+            }else{
+                sb.append(c);
+            }
+        }
+        
+        if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
+            professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+        }
+        
         
         dao.insert(request.getParameter("titol"), 
                 request.getParameter("estat"), 
                 request.getParameter("estudis"), 
                 request.getParameter("data_creacio"), 
-                new ArrayList<Professor>());
+                professors);
         
         context.getRequestDispatcher("/login.do").forward(request, response);
     }
