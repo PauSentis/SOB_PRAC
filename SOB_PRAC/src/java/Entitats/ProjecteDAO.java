@@ -215,29 +215,25 @@ public class ProjecteDAO implements DAO.Dao{
             return null;
     }
     
-    public void insert (int id, String title, String desc, String state, String estudiants, String estudis, 
-            String recursos, String data_defensa, String nota, String data_creacio, String data_mod, ArrayList<Professor> professors){
+    public void insert (String title, String state, String estudis, String data_creacio, ArrayList<Professor> professors){
             
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             try (Connection connect = DriverManager.getConnection("jdbc:derby://localhost:1527/SOBDB", "root", "root")) {
                 Statement stmt1 = connect.createStatement();
                 
-                String query = "INSERT INTO SOBDB.PROJECTE SET TITOL="+title
-                        + ", DESCRIPCIO ="+desc
-                        + ", ESTAT ="+state
-                        + ", ESTUDIANTS ="+estudiants
-                        + ", ESTUDIS ="+estudis
-                        + ", RECURSOS ="+recursos
-                        + ", DATA_DEFENSA ="+data_defensa
-                        + ", QUALIFICACIO ="+nota
-                        + ", DATA_CREACIO ="+data_creacio
-                        + ", DATA_MODIFICACIO ="+data_mod
-                        + "WHERE IDPROJ="+id;
+                String query = "INSERT INTO SOBDB.PROJECTE TITOL'="+title
+                        + "', ESTAT ='"+state
+                        + "', ESTUDIS ='"+estudis
+                        + "', DATA_CREACIO ='"+data_creacio+"'";
                 stmt1.executeUpdate(query);
                 
                 for(Professor p: professors){
-                    query = "INSERT INTO SOBDB.PROFPROJ (IDPROFESSOR, IDPROJECTE) VALUES ("+p.getId()+","+id+")";
+                    query ="INSERT INTO SOBDB.PROJECTE (TITOL, ESTAT, ESTUDIS, DATA_CREACIO) VALUES "
+                            + "('"+title
+                            + "','"+state
+                            + "','"+estudis
+                            + "','"+data_creacio+"')";
                     stmt1.executeUpdate(query);
                 }
             }
