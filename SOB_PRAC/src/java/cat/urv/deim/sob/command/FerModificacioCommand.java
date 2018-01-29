@@ -26,7 +26,8 @@ public class FerModificacioCommand implements Command {
 
         ServletContext context = request.getSession().getServletContext();
         ProjecteDAO dao = new ProjecteDAO();
-        Projecte p = (Projecte) request.getAttribute("projM");
+        Projecte p = (Projecte) context.getAttribute("projecgteM");
+        System.err.println("estat: "+p.getEstat());
         
         switch (p.getEstat()){
             case "Proposat":
@@ -59,6 +60,7 @@ public class FerModificacioCommand implements Command {
                 break;
                 
             case "Acabat":
+                System.out.println("Acabat");
                 dao.update(p.getId(), 
                         request.getParameter("titol"), 
                         request.getParameter("descripcio"), 
@@ -103,10 +105,8 @@ public class FerModificacioCommand implements Command {
                         new ArrayList<Professor>());
                 break;
         }
-        /*ArrayList<Projecte> proj = dao.findByProfessor(profe.getId());
-        request.setAttribute("proj", proj);
-        session.setAttribute("currentSessionUser", profe);
-        context.getRequestDispatcher("/userLogged.jsp").forward(request, response);*/
+        
+        context.getRequestDispatcher("/login.do").forward(request, response);
     }
     
 }

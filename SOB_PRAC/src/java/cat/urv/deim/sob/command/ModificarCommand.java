@@ -28,6 +28,7 @@ public class ModificarCommand implements Command{
         int idProj = Integer.parseInt(request.getParameter("idProj"));
         Projecte p = dao.findById(idProj);
         request.setAttribute("projecgteM", p);
+        context.setAttribute("projecgteM", p);
         System.out.println("Estat"+p.getTitol());
         
         switch (p.getEstat()){
