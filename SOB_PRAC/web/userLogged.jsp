@@ -101,7 +101,7 @@
     </table>
         
         <tr>
-        <form action="afegirProj.do">
+        <form action="afegir.do">
         <input type="submit" value="Afegir Projecte"></form>
         </tr>
 </div>

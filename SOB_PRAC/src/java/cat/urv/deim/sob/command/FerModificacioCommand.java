@@ -38,10 +38,9 @@ public class FerModificacioCommand implements Command {
         
         for(int n=0; n<s.length(); n++){
             char c = s.charAt(n);
-            System.out.println("Lletra: "+c);
             if(c==','){
-                if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
-                    professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+                if(sb.toString().trim().length()>0 && (profeDAO.findByNom(sb.toString().trim())!=null)){
+                    professors.add(profeDAO.findByNom(sb.toString().trim()));
                 }
                 sb = new StringBuilder();
             }else{
@@ -49,11 +48,10 @@ public class FerModificacioCommand implements Command {
             }
         }
         
-        if(sb.toString().trim().length()>0 && (profeDAO.findByProfessor(sb.toString().trim())!=null)){
-            professors.add(profeDAO.findByProfessor(sb.toString().trim()));
+        if(sb.toString().trim().length()>0 && (profeDAO.findByNom(sb.toString().trim())!=null)){
+            professors.add(profeDAO.findByNom(sb.toString().trim()));
         }
         
-        System.out.println("Llista: "+professors.toString());
         for(Professor profeProj: p.getListProfessor()){
             for (Professor profeAdd : professors) {
                 if(profeProj.getId()==profeAdd.getId()){
