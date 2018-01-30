@@ -10,12 +10,14 @@ import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
 import cat.urv.deim.sob.Projecte;
 import com.google.gson.Gson;
-import com.google.gson.JsonParser;
+import javax.json.JsonObject;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
-import com.google.gson.JsonObject;
 import java.math.BigDecimal;
+import javafx.beans.binding.Bindings;
 import javax.json.Json;
+import static javax.json.Json.createObjectBuilder;
 import javax.servlet.ServletException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -34,9 +36,7 @@ public class RESTProfessor {
     
     @GET
     public JsonObject professor(){
-        JsonObject innerObject = new JsonObject();
-        innerObject.addProperty("Hello", "Ciordia");
-        return innerObject;
+        return Json.createObjectBuilder().add("Hola", "dioooooo").build();
     }
     
     @GET
@@ -55,9 +55,9 @@ public class RESTProfessor {
         
         
         String json = gson.toJson(profe);
-        JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
-        return jsonObject;
         
+        JsonObject jsonObject = Json.createReader(new StringReader(json)).readObject();
+        return jsonObject;
     }
     
 }

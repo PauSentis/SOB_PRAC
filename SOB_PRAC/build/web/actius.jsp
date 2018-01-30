@@ -97,9 +97,6 @@
         </tbody>
     </table>
         
-        <form action="/rest/api/v1/professors/1" method="GET">
-        <input type="submit" value="get"></form>
-
 </div>
 
 </body>
