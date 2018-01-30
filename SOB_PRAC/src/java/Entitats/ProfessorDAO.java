@@ -89,4 +89,13 @@ public class ProfessorDAO implements DAO.Dao{
         return null;        
     }
     
+    public Professor findById(int id) throws ServletException, IOException {
+        
+        ArrayList<Professor> professors = findAll();
+        for(Professor profe: professors){
+            if(profe.getId()==id) return profe;
+        }
+        return null;        
+    }
+    
 }
