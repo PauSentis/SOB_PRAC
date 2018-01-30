@@ -12,7 +12,6 @@ import javax.ws.rs.Path;
  * @author Toni Ciordia
  */
 
-@Path("/rest/api/v1")
 public class RESTProjecte {
     
     

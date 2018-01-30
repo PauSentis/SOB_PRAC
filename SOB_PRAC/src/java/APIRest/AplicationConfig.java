@@ -14,15 +14,7 @@ import javax.ws.rs.core.Application;
  *
  * @author Toni Ciordia
  */
-@ApplicationPath("/rest/api/v1")
-public class ApplicationConfig extends Application{
-    
-    @Override
-    public Set<Class<?>> getClasses(){
-        
-        final Set<Class<?>> classes = new HashSet<>();
-        
-        return classes;
-    }
+@ApplicationPath("rest/api/v1")
+public class AplicationConfig extends Application{
     
 }

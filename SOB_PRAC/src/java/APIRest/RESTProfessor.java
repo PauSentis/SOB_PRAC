@@ -14,6 +14,8 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import com.google.gson.JsonObject;
+import java.math.BigDecimal;
+import javax.json.Json;
 import javax.servlet.ServletException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -27,10 +29,15 @@ import javax.ws.rs.core.Response;
  * @author Toni Ciordia
  */
 
-@Path("/professor")
+@Path("professor")
 public class RESTProfessor {
     
-    
+    @GET
+    public JsonObject professor(){
+        JsonObject innerObject = new JsonObject();
+        innerObject.addProperty("Hello", "Ciordia");
+        return innerObject;
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
