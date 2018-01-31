@@ -45,8 +45,6 @@ public class LoginCommand implements Command{
             password = (String) context.getAttribute("pass");
         }
         
-        System.out.println("Profe: "+profe.getUsuari());
-        System.out.println("pass: "+password);
         if(profe==null||!profe.isValid(password)){
             request.setAttribute("error", true);
             context.getRequestDispatcher("/login.jsp").forward(request, response);
