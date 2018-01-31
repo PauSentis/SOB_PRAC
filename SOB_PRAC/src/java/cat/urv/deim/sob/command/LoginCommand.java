@@ -39,7 +39,7 @@ public class LoginCommand implements Command{
         
         String password = "";
       
-        if(((Professor) context.getAttribute("pass"))==null){
+        if(((String) context.getAttribute("pass"))==null){
             password = request.getParameter("pass");
         }else{
             password = (String) context.getAttribute("pass");
