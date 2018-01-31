@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.xml.bind.StringInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,14 +78,34 @@ public class RESTProjecte {
         
     }
     
+    @Path("{id}/assign")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_HTML)
-    @Path("{id}/assign")
-    public Response assignStudents(ArrayList<String> estudiants) throws ServletException, IOException{
-       
-        return Response.status(Response.Status.CREATED).entity("funciona post").build();
+    public Response assignStudents(JsonObject jsonInici,  @PathParam("id") String id) throws ServletException, IOException{
+        String user = jsonInici.getString("user");
+        String password = jsonInici.getString("password");
         
+        ProfessorDAO professorDAO = new ProfessorDAO();
+        Professor profe = professorDAO.findByProfessor(user);
+        
+        
+        if(profe==null||!profe.isValid(password)){
+            return Response.status(Response.Status.CREATED).entity("Error, autentificació incorrecte").build();
+        }else{
+            String s = jsonInici.getString("noms");
+        
+            ProjecteDAO daoProj = new ProjecteDAO();
+            Projecte p = daoProj.findById(Integer.parseInt(id));
+            if(p.getEstudiants().length()>0){
+                s= p.getEstudiants()+", "+s;
+            }
+
+            daoProj.update(p.getId(), p.getTitol(), p.getDescripcio(), p.getEstat(),
+                    s, p.getEstudis(), p.getRecursos(), p.getData_defensa(),
+                    p.getQualificacio(), p.getData_creacio(), p.getData_modificacio(), p.getListProfessor());
+        }
+        
+        return Response.status(Response.Status.CREATED).entity("Alumnes acutalitzats correctament").build();
     }
     
     @GET

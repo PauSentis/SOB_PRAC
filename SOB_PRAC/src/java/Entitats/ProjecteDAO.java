@@ -192,7 +192,6 @@ public class ProjecteDAO implements DAO.Dao{
                         + "', DATA_MODIFICACIO ='"+data_mod
                         + "' WHERE IDPROJ="+id;
             
-            System.out.println(query);
             stmt1.executeUpdate(query);
             
             for(Professor p: professors){
