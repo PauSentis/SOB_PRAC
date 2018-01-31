@@ -33,18 +33,26 @@ public class LoginCommand implements Command{
         if(((Professor) context.getAttribute("user"))==null){
             ProfessorDAO professorDAO = new ProfessorDAO();
             profe = professorDAO.findByProfessor(request.getParameter("usuari"));
-            context.setAttribute("user", profe);
-            context.setAttribute("pass", request.getParameter("pass"));
         }else{
             profe = (Professor) context.getAttribute("user");
         }
         
+        String password = "";
       
+        if(((Professor) context.getAttribute("pass"))==null){
+            password = request.getParameter("pass");
+        }else{
+            password = (String) context.getAttribute("pass");
+        }
         
-        if(profe==null||!profe.isValid((String) context.getAttribute("pass"))){
+        System.out.println("Profe: "+profe.getUsuari());
+        System.out.println("pass: "+password);
+        if(profe==null||!profe.isValid(password)){
             request.setAttribute("error", true);
             context.getRequestDispatcher("/login.jsp").forward(request, response);
         }else{
+            context.setAttribute("user", profe);
+            context.setAttribute("pass", request.getParameter("pass"));
             HttpSession session = request.getSession(true);
             ProjecteDAO dao = new ProjecteDAO();
             ArrayList<Projecte> proj = dao.findByProfessor(profe.getId());

@@ -52,10 +52,16 @@ public class FerModificacioCommand implements Command {
             professors.add(profeDAO.findByNom(sb.toString().trim()));
         }
         
+        ArrayList<Professor> professorsAafegir = new ArrayList<>();
+        
+        for(Professor pf: professors){
+            professorsAafegir.add(pf);
+        }
+        
         for(Professor profeProj: p.getListProfessor()){
             for (Professor profeAdd : professors) {
                 if(profeProj.getId()==profeAdd.getId()){
-                    professors.remove(profeAdd);
+                    professorsAafegir.remove(profeAdd);
                 }
             }
         }
@@ -75,7 +81,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         request.getParameter("data_creacio"), 
                         p.getData_modificacio(), 
-                        professors);
+                        professorsAafegir);
                 break;
             case "Assignat":
                 dao.update(p.getId(), 
@@ -89,7 +95,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         p.getData_modificacio(), 
-                        professors);
+                        professorsAafegir);
                 break;
                 
             case "Acabat":
@@ -105,7 +111,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        professors);
+                        professorsAafegir);
                 break;
                 
             case "Pendent de defensa":
@@ -120,7 +126,7 @@ public class FerModificacioCommand implements Command {
                         p.getQualificacio(), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        professors);
+                        professorsAafegir);
                 break;
                 
             case "Defensat":
@@ -135,7 +141,7 @@ public class FerModificacioCommand implements Command {
                         request.getParameter("qualificacio"), 
                         p.getData_creacio(), 
                         request.getParameter("data_modificacio"), 
-                        professors);
+                        professorsAafegir);
                 break;
         }
         
