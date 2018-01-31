@@ -32,7 +32,7 @@ public class RESTProfessor {
     
     @GET
     public JsonObject professor(){
-        return Json.createObjectBuilder().add("Hola", "dioooooo").build();
+        return Json.createObjectBuilder().add("Hola", "Adeu").build();
     }
     
     @GET
