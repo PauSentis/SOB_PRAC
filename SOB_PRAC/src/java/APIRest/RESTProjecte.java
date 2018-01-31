@@ -10,10 +10,14 @@ import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
 import cat.urv.deim.sob.Projecte;
 import com.google.gson.Gson;
+import com.sun.xml.bind.StringInputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.List;
 import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.servlet.ServletException;
 import javax.ws.rs.GET;
@@ -24,6 +28,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 
 /**
@@ -35,48 +40,45 @@ public class RESTProjecte {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject findAll(@Context UriInfo info) throws ServletException, IOException{
+    public JsonArray findAll(@Context UriInfo info) throws ServletException, IOException{
         
         Gson gson = new Gson();
         
         ProjecteDAO daoProj = new ProjecteDAO();
         
-        String state = info.getQueryParameters().getFirst("state");
-        JsonObject jsonObject = null;
+        MultivaluedMap<String, String> state = info.getQueryParameters();
         ArrayList<Projecte> projectes;
 
-        if(state == null){
-            
+        if(state.getFirst("state")==null){
             projectes = daoProj.findAll();
             
         }else{
-            
-            String[] states = state.split("\\?state=");
             projectes = new ArrayList<>();
             ArrayList<Projecte> allProjects = daoProj.findAll();
-            for (String state1 : states) {
+      
+            for (String estat: state.get("state")){
                 for (Projecte proj : allProjects) {
-                    if (proj.getEstat().equals(state1)) {
+                    if (proj.getEstat().equals(estat)) {
                         projectes.add(proj);
                     }
                 }
             }
-            
+                      
         }
-        
             String json = gson.toJson(projectes);
-            jsonObject = Json.createReader(new StringReader(json)).readObject();
+            
+            JsonArray js = Json.createReader(new StringReader(json)).readArray();
         
-        return jsonObject;
+        return js;
         
     }
-    
+    /*
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("{id}/assign")
     public JsonObject assignStudents(){
         
-    }
+    }*/
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)

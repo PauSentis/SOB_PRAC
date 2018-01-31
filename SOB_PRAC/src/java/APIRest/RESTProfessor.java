@@ -14,17 +14,13 @@ import javax.json.JsonObject;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.math.BigDecimal;
-import javafx.beans.binding.Bindings;
 import javax.json.Json;
-import static javax.json.Json.createObjectBuilder;
 import javax.servlet.ServletException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 /**
  *
