@@ -10,16 +10,19 @@ import Entitats.ProjecteDAO;
 import cat.urv.deim.sob.Professor;
 import cat.urv.deim.sob.Projecte;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.xml.bind.StringInputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.binding.Bindings;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.servlet.ServletException;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.POST;
@@ -29,6 +32,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 /**
@@ -72,13 +76,16 @@ public class RESTProjecte {
         return js;
         
     }
-    /*
+    
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_HTML)
     @Path("{id}/assign")
-    public JsonObject assignStudents(){
+    public Response assignStudents(ArrayList<String> estudiants) throws ServletException, IOException{
+       
+        return Response.status(Response.Status.CREATED).entity("funciona post").build();
         
-    }*/
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
